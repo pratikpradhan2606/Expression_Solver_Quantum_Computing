@@ -11,7 +11,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 """Implementation of feature selection based on maximization of relevance and minimization of redundancy.
 
 Reference:
@@ -24,7 +23,6 @@ Selection in Credit Scoring and Classification Using a Quantum Annealer."
 
 import numpy as np
 from scipy.stats import spearmanr
-
 import dimod
 
 

@@ -25,7 +25,6 @@ from sklearn.model_selection import cross_val_score
 from correlation import correlation_feature_selection_cqm, beta_to_alpha
 from solve import solve_feature_selection_cqm
 
-
 class DataSetBase:
     """Base class for datasets.
 
@@ -119,8 +118,12 @@ class DataSetBase:
 
 class Titanic(DataSetBase):
     def __init__(self):
-        df = pd.read_csv('formatted_titanic.csv')
-        target_col = 'survived'
+        df = pd.read_csv('daily_features_labels.csv')
+        target_col = 'Label'
+        df = df.drop(['sr_no','Date', 'Test/Train'], axis=1)
+        # print the updated dataframe
+        print(df)
+        df = df.fillna(0)
         self.X = df.drop(target_col, axis=1).astype(int)
         self.y = df[target_col].values
         self.baseline_cv_score = 0.69
